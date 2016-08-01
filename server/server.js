@@ -10,6 +10,9 @@ var Webpage = require('../db/webpageModel');
 var db = require('../db/webpageController');
 var md5 = require('md5');
 
+var downloadHTML = require('../workers/downloadHTML');
+downloadHTML(queue);
+
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());

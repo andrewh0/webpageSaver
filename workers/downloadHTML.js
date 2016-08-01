@@ -33,7 +33,7 @@ var downloadHTML = function(queue) {
 
     })
     .catch(function(err) {
-      db.updateWebpage(job.jobId, { status: 'done', html: 'No response for that page. Please try a different URL.' }, function(err, webpage) {
+      db.updateWebpage(job.jobId, { status: 'done', html: 'No response for that page. Please make sure it\'s a valid URL beginning with \'http://\'.' }, function(err, webpage) {
         console.log('Webpage ' + job.url + ' was invalid.');
       });
     });

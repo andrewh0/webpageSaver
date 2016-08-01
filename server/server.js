@@ -32,10 +32,10 @@ app.get('/job/:jobId', function(req, res) {
       if (webpage.status !== 'queued') {
         res.json(webpage.html);
       } else {
-        res.json('This job is still being processed.');
+        res.json('This job is still being processed. Check back soon!');
       }
     } else {
-      res.json('That\'s an invalid Job ID. Please try again.');
+      res.json('That\'s an invalid Job ID. Please try a different one.');
     }
   });
 });
@@ -43,7 +43,7 @@ app.get('/job/:jobId', function(req, res) {
 app.post('/url', function(req, res) {
   var url = req.body.url;
 
-  // Create a job id with first 5 characters in md5 hash
+  // Create a job id with first 6 characters in md5 hash
   var jobId = md5(url).split('').slice(0, 6).join('');
 
   db.getWebpage(jobId, function(err, webpage) {

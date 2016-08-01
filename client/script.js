@@ -7,7 +7,7 @@ var updateJobId = function(id) {
 };
 
 var updateJobStatus = function(status) {
-  $('.status').html(status);
+  $('.webpage').attr('srcdoc', status);
 };
 
 var initialize = function() {

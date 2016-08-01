@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-var Webpage = require('../db/model');
-var db = require('../db/controller');
+var Webpage = require('../db/webpageModel');
+var db = require('../db/webpageController');
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');

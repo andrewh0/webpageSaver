@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Webpage Saver</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Webpage Saver</h1>
+    <p>Create a job queue whose workers fetch data from a URL and store the results in a database.  The job queue should expose a REST API for adding jobs and checking their status / results.
+    <br><br>
+    Example:
+    <br>
+    User submits www.google.com to your endpoint.  The user gets back a job id. Your system fetches www.google.com (the result of which would be HTML) and stores the result.  The user asks for the status of the job id and if the job is complete, he gets a response that includes the HTML for www.google.com
+    </p>
+
+    <input class="url-field" placeholder="http://www.google.com"></input>
+    <button class="url-submit">Submit</button>
+    <p class="job-id-display">The Job ID for that URL is: <span class="job-id"></span></p>
+    <input class="status-field" placeholder="Job ID"></input>
+    <button class="status-submit">Check status</button>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

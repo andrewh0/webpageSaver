@@ -10,6 +10,8 @@ var Webpage = require('../db/webpageModel');
 var db = require('../db/webpageController');
 var md5 = require('md5');
 
+var queue = require('./queue');
+
 var downloadHTML = require('../workers/downloadHTML');
 downloadHTML(queue);
 
@@ -63,8 +65,16 @@ app.post('/url', function(req, res) {
           throw new Error(err);
         }
 
-        // TODO: Add the url to the queue
-        res.json(webpage.jobId);
+        // Add the url to the queue
+        queue.enqueue({
+          jobId: jobId,
+          url: url
+        }, function(err, data) {
+          if (err) {
+            throw new Error(err);
+          }
+          res.json(webpage.jobId);
+        });
       });
     } else {
       // Webpage already found in the database
